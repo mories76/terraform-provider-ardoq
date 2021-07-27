@@ -19,6 +19,19 @@ func resourceArdoqReference() *schema.Resource {
 			StateContext: schema.ImportStatePassthroughContext,
 		},
 		Schema: map[string]*schema.Schema{
+			"description": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"display_text": {
+				Type:     schema.TypeString,
+				Optional: true,
+			},
+			"id": &schema.Schema{
+				Description: "The unique ID of the component",
+				Type:        schema.TypeString,
+				Computed:    true,
+			},
 			"root_workspace_id": {
 				Type:     schema.TypeString,
 				Required: true,
@@ -39,14 +52,6 @@ func resourceArdoqReference() *schema.Resource {
 				Type:     schema.TypeInt,
 				Required: true,
 				// Computed: true,
-			},
-			"description": {
-				Type:     schema.TypeString,
-				Optional: true,
-			},
-			"display_text": {
-				Type:     schema.TypeString,
-				Optional: true,
 			},
 		},
 	}

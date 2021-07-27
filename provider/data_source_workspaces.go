@@ -20,7 +20,7 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 			},
 			"name": &schema.Schema{
 				Type:     schema.TypeString,
-				Optional: true,
+				Required: true,
 			},
 			"description": &schema.Schema{
 				Type:     schema.TypeString,
@@ -32,7 +32,7 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 			},
 			"fields": {
 				Type:     schema.TypeList,
-				Optional: true,
+				Computed: true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
@@ -45,10 +45,10 @@ func dataSourceArdoqWorkspaces() *schema.Resource {
 	return &schema.Resource{
 		ReadContext: dataSourceWorkspacesRead,
 		Schema: map[string]*schema.Schema{
-			"name": &schema.Schema{
-				Type:     schema.TypeString,
-				Optional: true,
-			},
+			// "name": &schema.Schema{
+			// 	Type:     schema.TypeString,
+			// 	Optional: true,
+			// },
 			"workspaces": &schema.Schema{
 				Type:     schema.TypeList,
 				Computed: true,
@@ -72,7 +72,7 @@ func dataSourceArdoqWorkspaces() *schema.Resource {
 						},
 						"fields": {
 							Type:     schema.TypeList,
-							Optional: true,
+							Computed: true,
 							Elem: &schema.Schema{
 								Type: schema.TypeString,
 							},
