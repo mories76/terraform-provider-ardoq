@@ -3,6 +3,7 @@
 /vendor
 /examples
 /Makefile
+/private
 
 /.vscode
 *.code-workspace
