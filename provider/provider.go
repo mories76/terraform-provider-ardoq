@@ -33,7 +33,7 @@ func New(version string) func() *schema.Provider {
 					Description: "API key. Can be specified with the `ARDOQ_APIKEY` " +
 						"environment variable.",
 					Type:        schema.TypeString,
-					Required:    true,
+					Optional:    true,
 					Sensitive:   true,
 					DefaultFunc: schema.EnvDefaultFunc("ARDOQ_APIKEY", nil),
 				},
@@ -41,14 +41,14 @@ func New(version string) func() *schema.Provider {
 					Description: "Base URI for the Ardoq API. For example https://mycompany.ardoq.com/api/ Can be specified with the `ARDOQ_BASEURI` " +
 						"environment variable.",
 					Type:        schema.TypeString,
-					Required:    true,
+					Optional:    true,
 					DefaultFunc: schema.EnvDefaultFunc("ARDOQ_BASEURI", nil),
 				},
 				"org": &schema.Schema{
 					Description: "You can specify an organization for your API requests. Can be specified with the `ARDOQ_ORG` " +
 						"environment variable.",
 					Type:        schema.TypeString,
-					Required:    true,
+					Optional:    true,
 					DefaultFunc: schema.EnvDefaultFunc("ARDOQ_ORG", nil),
 				},
 			},
