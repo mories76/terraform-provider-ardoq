@@ -3,12 +3,12 @@
 page_title: "ardoq_component Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  ardoq_component data source can be used to retrieve information for a component by name and workspace.
 ---
 
 # ardoq_component (Data Source)
 
-
+`ardoq_component` data source can be used to retrieve information for a component by name and workspace.
 
 
 
@@ -17,17 +17,18 @@ description: |-
 
 ### Required
 
-- **workspace_id** (String)
+- **name** (String) Name of the component
+- **root_workspace** (String) Id of the workspace the component belongs to
 
 ### Optional
 
 - **id** (String) The ID of this resource.
-- **name** (String)
-- **type_id** (String)
 
 ### Read-Only
 
-- **description** (String)
-- **fields** (Map of String)
+- **description** (String) Text field describing the component
+- **fields** (Map of String) All custom fields from the model end up here
+- **parent** (String) Id of the component's parent
+- **type_id** (String) Id of the component's type
 
 

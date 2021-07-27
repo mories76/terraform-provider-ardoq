@@ -3,12 +3,12 @@
 page_title: "ardoq_components Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  ardoq_components data source can be used to retrieve all components from a specific workspace.
 ---
 
 # ardoq_components (Data Source)
 
-
+`ardoq_components` data source can be used to retrieve all components from a specific workspace.
 
 
 
@@ -17,11 +17,10 @@ description: |-
 
 ### Required
 
-- **workspace_id** (String)
+- **root_workspace** (String) Id of the workspace where to retrieve components from
 
 ### Optional
 
-- **fields** (List of String)
 - **id** (String) The ID of this resource.
 
 ### Read-Only
@@ -35,8 +34,10 @@ Read-Only:
 
 - **description** (String)
 - **fields** (Map of String)
+- **id** (String)
 - **name** (String)
 - **parent** (String)
+- **root_workspace** (String)
 - **type_id** (String)
 
 

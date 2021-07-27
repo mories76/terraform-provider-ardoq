@@ -18,7 +18,7 @@ Ardoq components
 ### Required
 
 - **name** (String)
-- **workspace_id** (String)
+- **root_workspace** (String)
 
 ### Optional
 
