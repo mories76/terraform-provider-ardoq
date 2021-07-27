@@ -1,0 +1,16 @@
+---
+subcategory: ""
+page_title: "Create components from a CSV - Ardoq Provider"
+description: |-
+    An example how to use a CSV to create components.
+---
+
+# Create components from a CSV
+
+Given a CSV file with the following content:
+
+{{ codefile "csv" "examples/guide/components.csv" }}
+
+You could create/manage a `arodq_component` for every row address in the CSV with the following config:
+
+{{ tffile "examples/guide/components.tf" }}
