@@ -33,7 +33,7 @@ func New(version string) func() *schema.Provider {
 					Description: "API key. Can be specified with the `ARDOQ_APIKEY` " +
 						"environment variable.",
 					Type:        schema.TypeString,
-					Optional:    true,
+					Required:    true,
 					Sensitive:   true,
 					DefaultFunc: schema.EnvDefaultFunc("ARDOQ_APIKEY", nil),
 				},
@@ -41,7 +41,7 @@ func New(version string) func() *schema.Provider {
 					Description: "Base URI for the Ardoq API. For example https://mycompany.ardoq.com/api/ Can be specified with the `ARDOQ_BASEURI` " +
 						"environment variable.",
 					Type:        schema.TypeString,
-					Optional:    true,
+					Required:    true,
 					DefaultFunc: schema.EnvDefaultFunc("ARDOQ_BASEURI", nil),
 				},
 				"org": &schema.Schema{
@@ -75,47 +75,49 @@ func New(version string) func() *schema.Provider {
 	}
 }
 
-// func configure(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-// 	apikey := d.Get("apikey").(string)
-// 	baseuri := d.Get("baseuri").(string)
-// 	org := d.Get("org").(string)
-
-// 	var diags diag.Diagnostics
-
-// 	if (apikey != "") && (baseuri != "") && (org != "") {
-// 		c, err := ardoq.NewRestClient(baseuri, apikey, org)
-// 		if err != nil {
-// 			return nil, diag.FromErr(err)
-// 		}
-
-// 		return c, diags
-// 	}
-// 	// TODO : add diag error
-// 	return nil, diags
-// }
-
 func configure(version string, p *schema.Provider) func(context.Context, *schema.ResourceData) (interface{}, diag.Diagnostics) {
 	return func(ctx context.Context, d *schema.ResourceData) (interface{}, diag.Diagnostics) {
-		apikey := d.Get("apikey").(string)
-		baseuri := d.Get("baseuri").(string)
-		org := d.Get("org").(string)
+		var diags diag.Diagnostics
+		var apikey, baseuri, org string
+
+		// Get apikey
+		if v, ok := d.GetOk("apikey"); ok {
+			apikey = v.(string)
+		} else {
+			diags = append(diags, diag.Diagnostic{
+				Severity: diag.Error,
+				Summary:  "apikey is required",
+			})
+
+			return nil, diags
+		}
+
+		// Get baseuri
+		if v, ok := d.GetOk("baseuri"); ok {
+			baseuri = v.(string)
+		} else {
+			diags = append(diags, diag.Diagnostic{
+				Severity: diag.Error,
+				Summary:  "baseuri is required",
+			})
+
+			return nil, diags
+		}
+
+		// Get org
+		if v, ok := d.GetOk("org"); ok {
+			org = v.(string)
+		}
 
 		// Setup a User-Agent for your API client (replace the provider name for yours):
 		// userAgent := p.UserAgent("terraform-provider-scaffolding", version)
 		// TODO: myClient.UserAgent = userAgent
 
-		var diags diag.Diagnostics
-
-		if (apikey != "") && (baseuri != "") && (org != "") {
-			c, err := ardoq.NewRestClient(baseuri, apikey, org)
-			if err != nil {
-				return nil, diag.FromErr(err)
-			}
-
-			return c, diags
+		c, err := ardoq.NewRestClient(baseuri, apikey, org)
+		if err != nil {
+			return nil, diag.FromErr(err)
 		}
 
-		return nil, diags
-		// return &apiClient{}, nil
+		return c, diags
 	}
 }
