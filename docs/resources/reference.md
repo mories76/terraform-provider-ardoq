@@ -27,6 +27,9 @@ Arodq references...
 
 - **description** (String)
 - **display_text** (String)
-- **id** (String) The ID of this resource.
+
+### Read-Only
+
+- **id** (String) The unique ID of the component
 
 

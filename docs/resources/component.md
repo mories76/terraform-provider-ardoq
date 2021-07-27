@@ -24,8 +24,11 @@ Ardoq components
 
 - **description** (String)
 - **fields** (Map of String)
-- **id** (String) The ID of this resource.
 - **parent** (String)
 - **type_id** (String)
+
+### Read-Only
+
+- **id** (String) The unique ID of the component
 
 
