@@ -5,9 +5,8 @@ import (
 	"flag"
 	"log"
 
-	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
-	ardoq "github.com/mories76/terraform-provider-ardoq/provider"
+	"github.com/mories76/terraform-provider-ardoq/provider"
 )
 
 // Run "go generate" to format example terraform files and generate the docs for the registry/website
@@ -20,22 +19,23 @@ import (
 // can be customized.
 //go:generate go run github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
 
-func main() {
-	// plugin.Serve(&plugin.ServeOpts{
-	// 	ProviderFunc: func() *schema.Provider {
-	// 		return ardoq.Provider()
-	// 	},
-	// })
+var (
+	// these will be set by the goreleaser configuration
+	// to appropriate values for the compiled binary
+	version string = "dev"
 
+	// goreleaser can also pass the specific commit if you want
+	// commit  string = ""
+)
+
+func main() {
 	var debugMode bool
 
 	flag.BoolVar(&debugMode, "debug", false, "set to true to run the provider with support for debuggers like delve")
 	flag.Parse()
 
-	opts := &plugin.ServeOpts{
-		ProviderFunc: func() *schema.Provider {
-			return ardoq.Provider()
-		}}
+	opts := &plugin.ServeOpts{ProviderFunc: provider.New(version)}
+
 	if debugMode {
 		// TODO: update this string with the full name of your provider as used in your configs
 		err := plugin.Debug(context.Background(), "mories.com/terraform/ardoq", opts)
