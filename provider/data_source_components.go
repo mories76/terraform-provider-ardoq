@@ -25,6 +25,11 @@ func dataSourceArdoqComponent() *schema.Resource {
 				Type:        schema.TypeString,
 				Required:    true,
 			},
+			"id": &schema.Schema{
+				Description: "The unique ID of the component",
+				Type:        schema.TypeString,
+				Computed:    true,
+			},
 			"parent": &schema.Schema{
 				Description: "Id of the component's parent",
 				Type:        schema.TypeString,
