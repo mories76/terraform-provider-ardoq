@@ -109,6 +109,7 @@ func configure(version string, p *schema.Provider) func(context.Context, *schema
 			org = v.(string)
 		}
 
+		// create new client
 		c, err := ardoq.NewRestClient(baseuri, apikey, org, version)
 		if err != nil {
 			return nil, diag.FromErr(err)
