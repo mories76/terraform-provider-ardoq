@@ -7,6 +7,8 @@ description: |-
 
 # Ardoq Provider
 
+This is a pre-release of this provder. Documentation is actively being worked on. (July/early August 2021)
+
 The Ardoq provider provides resources to interact with the Ardoq API
 
 This provider uses Token authentication.

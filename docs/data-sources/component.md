@@ -20,14 +20,11 @@ description: |-
 - **name** (String) Name of the component
 - **root_workspace** (String) Id of the workspace the component belongs to
 
-### Optional
-
-- **id** (String) The ID of this resource.
-
 ### Read-Only
 
 - **description** (String) Text field describing the component
 - **fields** (Map of String) All custom fields from the model end up here
+- **id** (String) The unique ID of the component
 - **parent** (String) Id of the component's parent
 - **type_id** (String) Id of the component's type
 
