@@ -35,9 +35,9 @@ func resourceArdoqComponent() *schema.Resource {
 			"type_id": {
 				Type:     schema.TypeString,
 				Optional: true,
-				Computed: true, //Added computed, if component is created without a type_id, terraform tries to change it to null if 'terraform plan' runs for a second time after a create
+				Computed: true,
 			},
-			"workspace_id": {
+			"root_workspace": {
 				Type:     schema.TypeString,
 				Required: true,
 			},
@@ -62,7 +62,7 @@ func resourceArdoqComponentCreate(ctx context.Context, d *schema.ResourceData, m
 	// get all required fields
 	req := ardoq.ComponentRequest{
 		Name:          d.Get("name").(string),
-		RootWorkspace: d.Get("workspace_id").(string),
+		RootWorkspace: d.Get("root_workspace").(string),
 	}
 
 	// to get optional fields, first check if thay are set with GetOK, if set the set te request value
