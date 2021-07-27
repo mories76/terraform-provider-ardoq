@@ -109,10 +109,6 @@ func configure(version string, p *schema.Provider) func(context.Context, *schema
 			org = v.(string)
 		}
 
-		// Setup a User-Agent for your API client (replace the provider name for yours):
-		// userAgent := p.UserAgent("terraform-provider-scaffolding", version)
-		// TODO: myClient.UserAgent = userAgent
-
 		c, err := ardoq.NewRestClient(baseuri, apikey, org, version)
 		if err != nil {
 			return nil, diag.FromErr(err)
