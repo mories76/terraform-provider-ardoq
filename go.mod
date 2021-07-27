@@ -6,5 +6,5 @@ require (
 	github.com/hashicorp/errwrap v1.1.0
 	github.com/hashicorp/terraform-plugin-docs v0.4.0
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.6.0
-	github.com/mories76/ardoq-client-go v0.0.2-0.20210727070024-ed2daff8ab60
+	github.com/mories76/ardoq-client-go v0.0.2-0.20210727153143-bcf4df8c5992
 )

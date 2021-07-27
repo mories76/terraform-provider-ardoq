@@ -113,7 +113,7 @@ func configure(version string, p *schema.Provider) func(context.Context, *schema
 		// userAgent := p.UserAgent("terraform-provider-scaffolding", version)
 		// TODO: myClient.UserAgent = userAgent
 
-		c, err := ardoq.NewRestClient(baseuri, apikey, org)
+		c, err := ardoq.NewRestClient(baseuri, apikey, org, version)
 		if err != nil {
 			return nil, diag.FromErr(err)
 		}
