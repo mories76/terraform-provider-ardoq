@@ -13,19 +13,25 @@ func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
 			"apikey": &schema.Schema{
+				Description: "API key. Can be specified with the `ARDOQ_APIKEY` " +
+					"environment variable.",
 				Type:        schema.TypeString,
-				Optional:    true,
+				Required:    true,
+				Sensitive:   true,
 				DefaultFunc: schema.EnvDefaultFunc("ARDOQ_APIKEY", nil),
 			},
 			"baseuri": &schema.Schema{
+				Description: "Base URI for the Ardoq API. For example https://mycompany.ardoq.com/api/ Can be specified with the `ARDOQ_BASEURI` " +
+					"environment variable.",
 				Type:        schema.TypeString,
-				Optional:    true,
-				Sensitive:   true,
+				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("ARDOQ_BASEURI", nil),
 			},
 			"org": &schema.Schema{
+				Description: "You can specify an organization for your API requests. Can be specified with the `ARDOQ_ORG` " +
+					"environment variable.",
 				Type:        schema.TypeString,
-				Optional:    true,
+				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("ARDOQ_ORG", nil),
 			},
 		},
