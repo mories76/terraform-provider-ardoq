@@ -1,9 +1,9 @@
 /.DS_Store
 /bin
 /vendor
-/examples
 /Makefile
 /private
+# /examples
 
 /.vscode
 *.code-workspace
