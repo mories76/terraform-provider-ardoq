@@ -3,12 +3,12 @@
 page_title: "ardoq_reference Resource - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  Arodq references...
+  ardoq_reference resource lets you create a reference
 ---
 
 # ardoq_reference (Resource)
 
-Arodq references...
+`ardoq_reference` resource lets you create a reference
 
 
 
@@ -17,19 +17,19 @@ Arodq references...
 
 ### Required
 
-- **root_workspace_id** (String)
-- **source** (String)
-- **target** (String)
-- **target_workspace_id** (String)
-- **type** (Number)
+- **root_workspace** (String) Id of the source component's workspace
+- **source** (String) Id of the source component
+- **target** (String) Id of the target component
+- **target_workspace** (String) Id of the target component's workspace
+- **type** (Number) Type (as defined by the model) i.e. Synchronous, Implicit etc.
 
 ### Optional
 
-- **description** (String)
-- **display_text** (String)
+- **description** (String) Text field describing the reference
+- **display_text** (String) Short label describing the reference, is visible in some visualizations
 
 ### Read-Only
 
-- **id** (String) The unique ID of the component
+- **id** (String) The unique ID of the reference
 
 

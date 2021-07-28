@@ -3,12 +3,12 @@
 page_title: "ardoq_workspace Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  arodq_workspace data source returns a workspace
 ---
 
 # ardoq_workspace (Data Source)
 
-
+`arodq_workspace` data source returns a workspace
 
 ## Example Usage
 
@@ -28,13 +28,14 @@ output "workspace_output" {
 
 ### Required
 
-- **name** (String)
+- **name** (String) Name of workspace
 
 ### Read-Only
 
-- **component_model** (String)
-- **description** (String)
-- **fields** (List of String)
-- **id** (String) The ID of this resource.
+- **component_model** (String) Id of the model the workspace is based on
+- **component_template** (String) Id of the template the workspace is based on
+- **description** (String) Text field describing the workspace
+- **fields** (Map of String) All custom fields from the model end up here
+- **id** (String) The unique ID of the workspace
 
 

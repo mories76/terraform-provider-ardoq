@@ -3,12 +3,12 @@
 page_title: "ardoq_model Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  ardoq_model returns a model
 ---
 
 # ardoq_model (Data Source)
 
-
+`ardoq_model` returns a model
 
 ## Example Usage
 
@@ -28,14 +28,14 @@ output "all_models" {
 
 ### Required
 
-- **id** (String) The ID of this resource.
+- **id** (String) The unique ID of the model
 
 ### Read-Only
 
-- **component_types** (Map of String)
-- **description** (String)
-- **fields** (Map of String)
-- **name** (String)
-- **reference_types** (Map of String)
+- **component_types** (Map of String) An array of component types and their id's
+- **description** (String) Text field describing the model,
+- **fields** (Map of String) All custom fields from the model end up here
+- **name** (String) Name of the model
+- **reference_types** (Map of String) An array of reference types and their id's
 
 

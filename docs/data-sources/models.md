@@ -3,12 +3,12 @@
 page_title: "ardoq_models Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  ardoq_models returns all models
 ---
 
 # ardoq_models (Data Source)
 
-
+`ardoq_models` returns all models
 
 ## Example Usage
 
@@ -39,9 +39,11 @@ output "all_models" {
 
 Read-Only:
 
+- **component_types** (Map of String)
 - **description** (String)
 - **fields** (Map of String)
 - **id** (String)
 - **name** (String)
+- **reference_types** (Map of String)
 
 

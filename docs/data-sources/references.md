@@ -3,12 +3,12 @@
 page_title: "ardoq_references Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  arodq_references returns all references
 ---
 
 # ardoq_references (Data Source)
 
-
+`arodq_references` returns all references
 
 ## Example Usage
 
@@ -39,7 +39,7 @@ output "all_references" {
 
 ### Read-Only
 
-- **references** (List of Object) (see [below for nested schema](#nestedatt--references))
+- **references** (List of Object) References describe relationship between components. References can have types (defined by the model) to represent different kinds of relationship i.e. Synchronized or Asynchroinzed. (see [below for nested schema](#nestedatt--references))
 
 <a id="nestedatt--references"></a>
 ### Nested Schema for `references`
@@ -48,10 +48,11 @@ Read-Only:
 
 - **description** (String)
 - **display_text** (String)
-- **root_workspace_id** (String)
+- **id** (String)
+- **root_workspace** (String)
 - **source** (String)
 - **target** (String)
-- **target_workspace_id** (String)
+- **target_workspace** (String)
 - **type** (Number)
 
 

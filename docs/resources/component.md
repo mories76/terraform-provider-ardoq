@@ -3,12 +3,12 @@
 page_title: "ardoq_component Resource - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  Ardoq components
+  ardoq_component resource lets you create a component
 ---
 
 # ardoq_component (Resource)
 
-Ardoq components
+`ardoq_component` resource lets you create a component
 
 
 
@@ -17,15 +17,15 @@ Ardoq components
 
 ### Required
 
-- **name** (String)
-- **root_workspace** (String)
+- **name** (String) Name of the component
+- **root_workspace** (String) Id of the workspace the component belongs to
 
 ### Optional
 
-- **description** (String)
-- **fields** (Map of String)
-- **parent** (String)
-- **type_id** (String)
+- **description** (String) Text field describing the component
+- **fields** (Map of String) All custom fields from the model end up here
+- **parent** (String) Id of the component's parent
+- **type_id** (String) Id of the component's type
 
 ### Read-Only
 

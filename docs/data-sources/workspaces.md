@@ -3,12 +3,12 @@
 page_title: "ardoq_workspaces Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  arodq_workspaces data source returns all workspaces
 ---
 
 # ardoq_workspaces (Data Source)
 
-
+`arodq_workspaces` data source returns all workspaces
 
 ## Example Usage
 
@@ -32,7 +32,7 @@ output "all_workspaces" {
 
 ### Read-Only
 
-- **workspaces** (List of Object) (see [below for nested schema](#nestedatt--workspaces))
+- **workspaces** (List of Object) Ardoq groups documentation into workspaces. A workspace contains all the resources that Ardoq needs to render the textual and visual documentation. (see [below for nested schema](#nestedatt--workspaces))
 
 <a id="nestedatt--workspaces"></a>
 ### Nested Schema for `workspaces`
@@ -40,6 +40,7 @@ output "all_workspaces" {
 Read-Only:
 
 - **component_model** (String)
+- **component_template** (String)
 - **description** (String)
 - **fields** (List of String)
 - **id** (String)

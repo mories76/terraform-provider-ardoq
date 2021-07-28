@@ -3,12 +3,12 @@
 page_title: "ardoq_reference Data Source - terraform-provider-ardoq"
 subcategory: ""
 description: |-
-  
+  arodq_reference returns a reference
 ---
 
 # ardoq_reference (Data Source)
 
-
+`arodq_reference` returns a reference
 
 ## Example Usage
 
@@ -29,16 +29,16 @@ output "all_references" {
 
 ### Required
 
-- **id** (String) The ID of this resource.
+- **id** (String) The unique ID of the reference
 
 ### Read-Only
 
-- **description** (String)
-- **display_text** (String)
-- **root_workspace_id** (String)
-- **source** (String)
-- **target** (String)
-- **target_workspace_id** (String)
-- **type** (Number)
+- **description** (String) Text field describing the reference
+- **display_text** (String) Short label describing the reference, is visible in some visualizations
+- **root_workspace** (String) Id of the source component's workspace
+- **source** (String) Id of the source component
+- **target** (String) Id of the target component
+- **target_workspace** (String) Id of the target component's workspace
+- **type** (Number) Type (as defined by the model) i.e. Synchronous, Implicit etc.
 
 
