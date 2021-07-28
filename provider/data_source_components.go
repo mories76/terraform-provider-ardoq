@@ -83,7 +83,7 @@ func dataSourceArdoqComponents() *schema.Resource {
 							Computed:    true,
 						},
 						"fields": { // this is the place for the custom/unmapped fields
-							Description: "All custom field from the model end up here",
+							Description: "All custom fields from the model end up here",
 							Type:        schema.TypeMap,
 							Computed:    true,
 							Elem: &schema.Schema{

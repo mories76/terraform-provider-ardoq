@@ -16,42 +16,42 @@ func dataSourceArdoqReference() *schema.Resource {
 		ReadContext: dataSourceReferenceRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "The unique ID of the reference",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
 			"source": {
-				Description: "TODO", //TODOC
+				Description: "Id of the source component",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
-			"root_workspace_id": {
-				Description: "TODO", //TODOC
+			"root_workspace": {
+				Description: "Id of the source component's workspace",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"target": {
-				Description: "TODO", //TODOC
+				Description: "Id of the target component",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
-			"target_workspace_id": {
-				Description: "TODO", //TODOC
+			"target_workspace": {
+				Description: "Id of the target component's workspace",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"type": {
-				Description: "TODO", //TODOC
+				Description: "Type (as defined by the model) i.e. Synchronous, Implicit etc.",
 				Type:        schema.TypeInt,
 				Computed:    true,
 			},
 			"description": {
-				Description: "TODO", //TODOC
+				Description: "Text field describing the reference",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"display_text": {
-				Description: "TODO", //TODOC
+				Description: "Short label describing the reference, is visible in some visualizations",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
@@ -74,42 +74,42 @@ func dataSourceArdoqReferences() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"id": &schema.Schema{
-							Description: "TODO", //TODOC
+							Description: "The unique ID of the reference",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"source": {
-							Description: "TODO", //TODOC
+							Description: "Id of the source component",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
-						"root_workspace_id": {
-							Description: "TODO", //TODOC
+						"root_workspace": {
+							Description: "Id of the source component's workspace",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"target": {
-							Description: "TODO", //TODOC
+							Description: "Id of the target component",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
-						"target_workspace_id": {
-							Description: "TODO", //TODOC
+						"target_workspace": {
+							Description: "Id of the target component's workspace",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"type": {
-							Description: "TODO", //TODOC
+							Description: "Type (as defined by the model) i.e. Synchronous, Implicit etc.",
 							Type:        schema.TypeInt,
 							Computed:    true,
 						},
 						"description": {
-							Description: "TODO", //TODOC
+							Description: "Text field describing the reference",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"display_text": {
-							Description: "TODO", //TODOC
+							Description: "Short label describing the reference, is visible in some visual",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
@@ -134,13 +134,13 @@ func dataSourceReferenceRead(ctx context.Context, d *schema.ResourceData, m inte
 	}
 
 	svc := map[string]interface{}{
-		"root_workspace_id":   reference.RootWorkspace,
-		"source":              reference.Source,
-		"target_workspace_id": reference.TargetWorkspace,
-		"target":              reference.Target,
-		"type":                reference.Type,
-		"description":         reference.Description,
-		"display_text":        reference.DisplayText,
+		"root_workspace":   reference.RootWorkspace,
+		"source":           reference.Source,
+		"target_workspace": reference.TargetWorkspace,
+		"target":           reference.Target,
+		"type":             reference.Type,
+		"description":      reference.Description,
+		"display_text":     reference.DisplayText,
 	}
 
 	for key, val := range svc {

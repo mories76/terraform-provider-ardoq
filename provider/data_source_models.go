@@ -16,12 +16,12 @@ func dataSourceArdoqModel() *schema.Resource {
 		ReadContext: dataSourceModelRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "The unique ID of the model",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
 			"component_types": {
-				Description: "TODO", //TODOC
+				Description: "An array of component types and their id's",
 				Type:        schema.TypeMap,
 				Computed:    true,
 				Elem: &schema.Schema{
@@ -29,12 +29,12 @@ func dataSourceArdoqModel() *schema.Resource {
 				},
 			},
 			"description": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "Text field describing the model,",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"fields": {
-				Description: "TODO", //TODOC
+				Description: "All custom fields from the model end up here",
 				Type:        schema.TypeMap,
 				Computed:    true,
 				Elem: &schema.Schema{
@@ -42,12 +42,12 @@ func dataSourceArdoqModel() *schema.Resource {
 				},
 			},
 			"name": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "Name of the model",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"reference_types": {
-				Description: "TODO", //TODOC
+				Description: "An array of reference types and their id's",
 				Type:        schema.TypeMap,
 				Computed:    true,
 				Elem: &schema.Schema{
@@ -73,23 +73,39 @@ func dataSourceArdoqModels() *schema.Resource {
 				Computed:    true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						"id": &schema.Schema{
-							Description: "TODO", //TODOC
-							Type:        schema.TypeString,
+						"component_types": {
+							Description: "An array of component types and their id's",
+							Type:        schema.TypeMap,
 							Computed:    true,
-						},
-						"name": &schema.Schema{
-							Description: "TODO", //TODOC
-							Type:        schema.TypeString,
-							Computed:    true,
+							Elem: &schema.Schema{
+								Type: schema.TypeString,
+							},
 						},
 						"description": &schema.Schema{
-							Description: "TODO", //TODOC
+							Description: "Text field describing the model",
+							Type:        schema.TypeString,
+							Computed:    true,
+						},
+						"id": &schema.Schema{
+							Description: "The unique ID of the model",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"fields": {
-							Description: "TODO", //TODOC
+							Description: "AAll custom fields from the model end up here",
+							Type:        schema.TypeMap,
+							Computed:    true,
+							Elem: &schema.Schema{
+								Type: schema.TypeString,
+							},
+						},
+						"name": &schema.Schema{
+							Description: "Name of the model",
+							Type:        schema.TypeString,
+							Computed:    true,
+						},
+						"reference_types": {
+							Description: "An array of reference types and their id's",
 							Type:        schema.TypeMap,
 							Computed:    true,
 							Elem: &schema.Schema{

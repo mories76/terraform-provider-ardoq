@@ -30,7 +30,7 @@ func resourceArdoqReference() *schema.Resource {
 				Optional:    true,
 			},
 			"id": &schema.Schema{
-				Description: "The unique ID of the component",
+				Description: "The unique ID of the reference",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},

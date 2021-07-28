@@ -16,27 +16,32 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 		ReadContext: dataSourceWorkspaceRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "The unique ID of the workspace",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"name": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "Name of workspace",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
-			"description": &schema.Schema{
-				Description: "TODO", //TODOC
+			"component_model": &schema.Schema{
+				Description: "Id of the model the workspace is based on",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
-			"component_model": &schema.Schema{
-				Description: "TODO", //TODOC
+			"component_template": &schema.Schema{
+				Description: "Id of the template the workspace is based on",
+				Type:        schema.TypeString,
+				Computed:    true,
+			},
+			"description": &schema.Schema{
+				Description: "Text field describing the workspace",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
 			"fields": {
-				Description: "TODO", //TODOC
+				Description: "All custom fields from the model end up here",
 				Type:        schema.TypeList,
 				Computed:    true,
 				Elem: &schema.Schema{
@@ -59,27 +64,32 @@ func dataSourceArdoqWorkspaces() *schema.Resource {
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"id": &schema.Schema{
-							Description: "TODO", //TODOC
+							Description: "The unique ID of the workspace",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"name": &schema.Schema{
-							Description: "TODO", //TODOC
+							Description: "Name of workspace",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"component_model": &schema.Schema{
-							Description: "TODO", //TODOC
+							Description: "Id of the model the workspace is based on",
+							Type:        schema.TypeString,
+							Computed:    true,
+						},
+						"component_template": &schema.Schema{
+							Description: "Id of the template the workspace is based on",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"description": &schema.Schema{
-							Description: "TODO", //TODOC
+							Description: "Text field describing the workspace",
 							Type:        schema.TypeString,
 							Computed:    true,
 						},
 						"fields": {
-							Description: "TODO", //TODOC
+							Description: "All custom fields from the model end up here",
 							Type:        schema.TypeList,
 							Computed:    true,
 							Elem: &schema.Schema{
@@ -141,10 +151,12 @@ func dataSourceWorkspacesRead(ctx context.Context, d *schema.ResourceData, m int
 
 func flattenWorkspace(workspace *ardoq.Workspace) map[string]interface{} {
 	return map[string]interface{}{
-		"id":              workspace.ID,
-		"name":            workspace.Name,
-		"description":     workspace.Description,
-		"component_model": workspace.ComponentModel,
+		"id":                 workspace.ID,
+		"name":               workspace.Name,
+		"component_model":    workspace.ComponentModel,
+		"component_template": workspace.ComponentTemplate,
+		"description":        workspace.Description,
+		"fields":             workspace.Fields,
 	}
 }
 
