@@ -90,7 +90,7 @@ func dataSourceArdoqWorkspaces() *schema.Resource {
 						},
 						"fields": {
 							Description: "All custom fields from the model end up here",
-							Type:        schema.TypeList,
+							Type:        schema.TypeMap,
 							Computed:    true,
 							Elem: &schema.Schema{
 								Type: schema.TypeString,
