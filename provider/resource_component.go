@@ -10,7 +10,7 @@ import (
 
 func resourceArdoqComponent() *schema.Resource {
 	return &schema.Resource{
-		Description:   "Ardoq components",
+		Description:   "`ardoq_component` resource lets you create a component",
 		CreateContext: resourceArdoqComponentCreate,
 		ReadContext:   resourceArdoqComponentRead,
 		UpdateContext: resourceArdoqComponentUpdate,

@@ -12,7 +12,7 @@ import (
 
 func dataSourceArdoqModel() *schema.Resource {
 	return &schema.Resource{
-		Description: "TODO", //TODOC
+		Description: "`ardoq_model` returns a model",
 		ReadContext: dataSourceModelRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
@@ -60,17 +60,13 @@ func dataSourceArdoqModel() *schema.Resource {
 
 func dataSourceArdoqModels() *schema.Resource {
 	return &schema.Resource{
-		Description: "TODO", //TODOC
+		Description: "`ardoq_models` returns all models",
 		ReadContext: dataSourceModelsRead,
 		Schema: map[string]*schema.Schema{
-			// "name": &schema.Schema{
-			// 	Type:     schema.TypeString,
-			// 	Optional: true,
-			// },
 			"models": &schema.Schema{
-				Description: "TODO", //TODOC
-				Type:        schema.TypeList,
-				Computed:    true,
+				// Description: "TODO", //TODOC
+				Type:     schema.TypeList,
+				Computed: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"component_types": {

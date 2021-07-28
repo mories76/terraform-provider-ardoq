@@ -12,7 +12,7 @@ import (
 
 func dataSourceArdoqWorkspace() *schema.Resource {
 	return &schema.Resource{
-		Description: "TODO", //TODOC
+		Description: "`arodq_workspace` data source returns a workspace",
 		ReadContext: dataSourceWorkspaceRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
@@ -42,7 +42,7 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 			},
 			"fields": {
 				Description: "All custom fields from the model end up here",
-				Type:        schema.TypeList,
+				Type:        schema.TypeMap,
 				Computed:    true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
@@ -54,11 +54,11 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 
 func dataSourceArdoqWorkspaces() *schema.Resource {
 	return &schema.Resource{
-		Description: "TODO", //TODOC
+		Description: "`arodq_workspaces` data source returns all workspaces",
 		ReadContext: dataSourceWorkspacesRead,
 		Schema: map[string]*schema.Schema{
 			"workspaces": &schema.Schema{
-				Description: "TODO", //TODOC
+				Description: "Ardoq groups documentation into workspaces. A workspace contains all the resources that Ardoq needs to render the textual and visual documentation.",
 				Type:        schema.TypeList,
 				Computed:    true,
 				Elem: &schema.Resource{

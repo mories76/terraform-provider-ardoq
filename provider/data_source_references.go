@@ -12,21 +12,31 @@ import (
 
 func dataSourceArdoqReference() *schema.Resource {
 	return &schema.Resource{
-		Description: "TODO", //TODOC
+		Description: "`arodq_reference` returns a reference",
 		ReadContext: dataSourceReferenceRead,
 		Schema: map[string]*schema.Schema{
+			"description": {
+				Description: "Text field describing the reference",
+				Type:        schema.TypeString,
+				Computed:    true,
+			},
+			"display_text": {
+				Description: "Short label describing the reference, is visible in some visualizations",
+				Type:        schema.TypeString,
+				Computed:    true,
+			},
 			"id": &schema.Schema{
 				Description: "The unique ID of the reference",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
-			"source": {
-				Description: "Id of the source component",
+			"root_workspace": {
+				Description: "Id of the source component's workspace",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
-			"root_workspace": {
-				Description: "Id of the source component's workspace",
+			"source": {
+				Description: "Id of the source component",
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
@@ -45,32 +55,19 @@ func dataSourceArdoqReference() *schema.Resource {
 				Type:        schema.TypeInt,
 				Computed:    true,
 			},
-			"description": {
-				Description: "Text field describing the reference",
-				Type:        schema.TypeString,
-				Computed:    true,
-			},
-			"display_text": {
-				Description: "Short label describing the reference, is visible in some visualizations",
-				Type:        schema.TypeString,
-				Computed:    true,
-			},
 		},
 	}
 }
 
 func dataSourceArdoqReferences() *schema.Resource {
 	return &schema.Resource{
-		Description: "TODO", //TODOC
+		Description: "`arodq_references` returns all references",
 		ReadContext: dataSourceReferencesRead,
 		Schema: map[string]*schema.Schema{
-			// "name": &schema.Schema{
-			// 	Type:     schema.TypeString,
-			// 	Optional: true,
-			// },
 			"references": &schema.Schema{
-				Type:     schema.TypeList,
-				Computed: true,
+				Description: "References describe relationship between components. References can have types (defined by the model) to represent different kinds of relationship i.e. Synchronized or Asynchroinzed.",
+				Type:        schema.TypeList,
+				Computed:    true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"id": &schema.Schema{

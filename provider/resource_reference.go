@@ -10,7 +10,7 @@ import (
 
 func resourceArdoqReference() *schema.Resource {
 	return &schema.Resource{
-		Description:   "Arodq references...", //TODOC
+		Description:   "`ardoq_reference` resource lets you create a reference",
 		CreateContext: resourceArdoqReferenceCreate,
 		ReadContext:   resourceArdoqReferenceRead,
 		UpdateContext: resourceArdoqReferenceUpdate,
@@ -20,12 +20,12 @@ func resourceArdoqReference() *schema.Resource {
 		},
 		Schema: map[string]*schema.Schema{
 			"description": {
-				Description: "TODO", //TODOC
+				Description: "Text field describing the reference",
 				Type:        schema.TypeString,
 				Optional:    true,
 			},
 			"display_text": {
-				Description: "TODO", //TODOC
+				Description: "Short label describing the reference, is visible in some visualizations",
 				Type:        schema.TypeString,
 				Optional:    true,
 			},
@@ -34,28 +34,28 @@ func resourceArdoqReference() *schema.Resource {
 				Type:        schema.TypeString,
 				Computed:    true,
 			},
-			"root_workspace_id": {
-				Description: "TODO", //TODOC
+			"root_workspace": {
+				Description: "Id of the source component's workspace",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
 			"source": {
-				Description: "TODO", //TODOC
-				Type:        schema.TypeString,
-				Required:    true,
-			},
-			"target_workspace_id": {
-				Description: "TODO", //TODOC
+				Description: "Id of the source component",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
 			"target": {
-				Description: "TODO", //TODOC
+				Description: "Id of the target component",
+				Type:        schema.TypeString,
+				Required:    true,
+			},
+			"target_workspace": {
+				Description: "Id of the target component's workspace",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
 			"type": {
-				Description: "TODO", //TODOC
+				Description: "Type (as defined by the model) i.e. Synchronous, Implicit etc.",
 				Type:        schema.TypeInt,
 				Required:    true,
 				// Computed: true,
@@ -70,9 +70,9 @@ func resourceArdoqReferenceCreate(ctx context.Context, d *schema.ResourceData, m
 	// var diags diag.Diagnostics
 
 	req := ardoq.ReferenceRequest{
-		RootWorkspace:   d.Get("root_workspace_id").(string),
+		RootWorkspace:   d.Get("root_workspace").(string),
 		Source:          d.Get("source").(string),
-		TargetWorkspace: d.Get("target_workspace_id").(string),
+		TargetWorkspace: d.Get("target_workspace").(string),
 		Target:          d.Get("target").(string),
 		Type:            d.Get("type").(int),
 	}
