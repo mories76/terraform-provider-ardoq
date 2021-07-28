@@ -12,27 +12,33 @@ import (
 
 func dataSourceArdoqWorkspace() *schema.Resource {
 	return &schema.Resource{
+		Description: "TODO", //TODOC
 		ReadContext: dataSourceWorkspaceRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"name": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"description": &schema.Schema{
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"component_model": &schema.Schema{
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"fields": {
-				Type:     schema.TypeList,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeList,
+				Computed:    true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
@@ -43,36 +49,39 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 
 func dataSourceArdoqWorkspaces() *schema.Resource {
 	return &schema.Resource{
+		Description: "TODO", //TODOC
 		ReadContext: dataSourceWorkspacesRead,
 		Schema: map[string]*schema.Schema{
-			// "name": &schema.Schema{
-			// 	Type:     schema.TypeString,
-			// 	Optional: true,
-			// },
 			"workspaces": &schema.Schema{
-				Type:     schema.TypeList,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeList,
+				Computed:    true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"id": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"name": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"component_model": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"description": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"fields": {
-							Type:     schema.TypeList,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeList,
+							Computed:    true,
 							Elem: &schema.Schema{
 								Type: schema.TypeString,
 							},

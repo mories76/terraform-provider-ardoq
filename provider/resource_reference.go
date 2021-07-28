@@ -10,7 +10,7 @@ import (
 
 func resourceArdoqReference() *schema.Resource {
 	return &schema.Resource{
-		Description:   "Arodq references...",
+		Description:   "Arodq references...", //TODOC
 		CreateContext: resourceArdoqReferenceCreate,
 		ReadContext:   resourceArdoqReferenceRead,
 		UpdateContext: resourceArdoqReferenceUpdate,
@@ -20,12 +20,14 @@ func resourceArdoqReference() *schema.Resource {
 		},
 		Schema: map[string]*schema.Schema{
 			"description": {
-				Type:     schema.TypeString,
-				Optional: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Optional:    true,
 			},
 			"display_text": {
-				Type:     schema.TypeString,
-				Optional: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Optional:    true,
 			},
 			"id": &schema.Schema{
 				Description: "The unique ID of the component",
@@ -33,24 +35,29 @@ func resourceArdoqReference() *schema.Resource {
 				Computed:    true,
 			},
 			"root_workspace_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"source": {
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"target_workspace_id": {
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"target": {
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"type": {
-				Type:     schema.TypeInt,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeInt,
+				Required:    true,
 				// Computed: true,
 			},
 		},

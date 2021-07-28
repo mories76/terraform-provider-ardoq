@@ -20,12 +20,14 @@ func resourceArdoqComponent() *schema.Resource {
 		},
 		Schema: map[string]*schema.Schema{
 			"name": {
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"description": {
-				Type:     schema.TypeString,
-				Optional: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Optional:    true,
 			},
 			"id": &schema.Schema{
 				Description: "The unique ID of the component",
@@ -33,21 +35,25 @@ func resourceArdoqComponent() *schema.Resource {
 				Computed:    true,
 			},
 			"parent": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Optional:    true,
+				Computed:    true,
 			},
 			"type_id": {
-				Type:     schema.TypeString,
-				Optional: true,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Optional:    true,
+				Computed:    true,
 			},
 			"root_workspace": {
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"fields": {
-				Type: schema.TypeMap,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeMap,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},

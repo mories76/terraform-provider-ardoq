@@ -12,37 +12,44 @@ import (
 
 func dataSourceArdoqModel() *schema.Resource {
 	return &schema.Resource{
+		Description: "TODO", //TODOC
 		ReadContext: dataSourceModelRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"component_types": {
-				Type:     schema.TypeMap,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeMap,
+				Computed:    true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
 			},
 			"description": &schema.Schema{
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"fields": {
-				Type:     schema.TypeMap,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeMap,
+				Computed:    true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
 			},
 			"name": &schema.Schema{
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"reference_types": {
-				Type:     schema.TypeMap,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeMap,
+				Computed:    true,
 				Elem: &schema.Schema{
 					Type: schema.TypeString,
 				},
@@ -53,6 +60,7 @@ func dataSourceArdoqModel() *schema.Resource {
 
 func dataSourceArdoqModels() *schema.Resource {
 	return &schema.Resource{
+		Description: "TODO", //TODOC
 		ReadContext: dataSourceModelsRead,
 		Schema: map[string]*schema.Schema{
 			// "name": &schema.Schema{
@@ -60,25 +68,30 @@ func dataSourceArdoqModels() *schema.Resource {
 			// 	Optional: true,
 			// },
 			"models": &schema.Schema{
-				Type:     schema.TypeList,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeList,
+				Computed:    true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"id": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"name": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"description": &schema.Schema{
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"fields": {
-							Type:     schema.TypeMap,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeMap,
+							Computed:    true,
 							Elem: &schema.Schema{
 								Type: schema.TypeString,
 							},

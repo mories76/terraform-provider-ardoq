@@ -12,39 +12,48 @@ import (
 
 func dataSourceArdoqReference() *schema.Resource {
 	return &schema.Resource{
+		Description: "TODO", //TODOC
 		ReadContext: dataSourceReferenceRead,
 		Schema: map[string]*schema.Schema{
 			"id": &schema.Schema{
-				Type:     schema.TypeString,
-				Required: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Required:    true,
 			},
 			"source": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"root_workspace_id": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"target": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"target_workspace_id": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"type": {
-				Type:     schema.TypeInt,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeInt,
+				Computed:    true,
 			},
 			"description": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 			"display_text": {
-				Type:     schema.TypeString,
-				Computed: true,
+				Description: "TODO", //TODOC
+				Type:        schema.TypeString,
+				Computed:    true,
 			},
 		},
 	}
@@ -52,6 +61,7 @@ func dataSourceArdoqReference() *schema.Resource {
 
 func dataSourceArdoqReferences() *schema.Resource {
 	return &schema.Resource{
+		Description: "TODO", //TODOC
 		ReadContext: dataSourceReferencesRead,
 		Schema: map[string]*schema.Schema{
 			// "name": &schema.Schema{
@@ -63,37 +73,45 @@ func dataSourceArdoqReferences() *schema.Resource {
 				Computed: true,
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
-						// "id": &schema.Schema{
-						// 	Type:     schema.TypeString,
-						// 	Computed: true,
-						// },
+						"id": &schema.Schema{
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
+						},
 						"source": {
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"root_workspace_id": {
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"target": {
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"target_workspace_id": {
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"type": {
-							Type:     schema.TypeInt,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeInt,
+							Computed:    true,
 						},
 						"description": {
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 						"display_text": {
-							Type:     schema.TypeString,
-							Computed: true,
+							Description: "TODO", //TODOC
+							Type:        schema.TypeString,
+							Computed:    true,
 						},
 					},
 				},
@@ -158,7 +176,6 @@ func dataSourceReferencesRead(ctx context.Context, d *schema.ResourceData, m int
 
 func flattenReference(reference *ardoq.Reference) map[string]interface{} {
 	return map[string]interface{}{
-		// "id":                  reference.ID,
 		"root_workspace_id":   reference.RootWorkspace,
 		"source":              reference.Source,
 		"target_workspace_id": reference.TargetWorkspace,
