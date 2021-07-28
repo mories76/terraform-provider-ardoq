@@ -257,6 +257,8 @@ github.com/mories76/ardoq-client-go v0.0.2-0.20210727153143-bcf4df8c5992 h1:QB59
 github.com/mories76/ardoq-client-go v0.0.2-0.20210727153143-bcf4df8c5992/go.mod h1:AAKwA+KyD/iYU2uJmIOtclkfwXPFbeUnBsHXzvHwjrQ=
 github.com/mories76/ardoq-client-go v0.0.2-0.20210728153835-efafc1c773c9 h1:7dO5U4TCYzePAByWbsC3mPKfslU5kgs1QQh4tuO7CWQ=
 github.com/mories76/ardoq-client-go v0.0.2-0.20210728153835-efafc1c773c9/go.mod h1:AAKwA+KyD/iYU2uJmIOtclkfwXPFbeUnBsHXzvHwjrQ=
+github.com/mories76/ardoq-client-go v0.0.2-0.20210728201323-16c8dbce7da2 h1:Tn8Q9xtLD/cDrRPjbI/aJnuMBw3SuqT/1XUplmgTuVc=
+github.com/mories76/ardoq-client-go v0.0.2-0.20210728201323-16c8dbce7da2/go.mod h1:AAKwA+KyD/iYU2uJmIOtclkfwXPFbeUnBsHXzvHwjrQ=
 github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e/go.mod h1:zD1mROLANZcx1PVRCS0qkT7pwLkGfwJo4zjcN/Tysno=
 github.com/nsf/jsondiff v0.0.0-20200515183724-f29ed568f4ce/go.mod h1:uFMI8w+ref4v2r9jz+c9i1IfIttS/OkmLfrk1jne5hs=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
