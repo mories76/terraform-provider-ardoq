@@ -60,6 +60,14 @@ func resourceArdoqReference() *schema.Resource {
 				Required:    true,
 				// Computed: true,
 			},
+			"fields": {
+				Description: "All custom fields from the model end up here",
+				Type:        schema.TypeMap,
+				Elem: &schema.Schema{
+					Type: schema.TypeString,
+				},
+				Optional: true,
+			},
 		},
 	}
 }
