@@ -35,6 +35,7 @@ output "all_references" {
 
 - **description** (String) Text field describing the reference
 - **display_text** (String) Short label describing the reference, is visible in some visualizations
+- **fields** (Map of String) All custom fields from the model end up here
 - **root_workspace** (String) Id of the source component's workspace
 - **source** (String) Id of the source component
 - **target** (String) Id of the target component

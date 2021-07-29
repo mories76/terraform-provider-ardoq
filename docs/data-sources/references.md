@@ -48,6 +48,7 @@ Read-Only:
 
 - **description** (String)
 - **display_text** (String)
+- **fields** (Map of String)
 - **id** (String)
 - **root_workspace** (String)
 - **source** (String)
