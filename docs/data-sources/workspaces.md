@@ -42,7 +42,7 @@ Read-Only:
 - **component_model** (String)
 - **component_template** (String)
 - **description** (String)
-- **fields** (List of String)
+- **fields** (Map of String)
 - **id** (String)
 - **name** (String)
 
