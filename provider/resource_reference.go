@@ -115,7 +115,6 @@ func resourceArdoqReferenceRead(ctx context.Context, d *schema.ResourceData, m i
 
 	reference, err := c.References().Read(ctx, d.Id())
 	if err != nil {
-		// return diag.FromErr(err)
 		return handleNotFoundError(err, d, d.Id())
 	}
 

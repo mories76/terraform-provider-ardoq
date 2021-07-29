@@ -48,20 +48,10 @@ func dataSourceReferenceRead(ctx context.Context, d *schema.ResourceData, m inte
 	reference_id := d.Get("id").(string)
 
 	reference, err := c.References().Read(ctx, reference_id)
-
 	if err != nil {
-		return diag.FromErr(err)
+		// return diag.FromErr(err)
+		return handleNotFoundError(err, d, d.Id())
 	}
-
-	// ref := map[string]interface{}{
-	// 	"root_workspace":   reference.RootWorkspace,
-	// 	"source":           reference.Source,
-	// 	"target_workspace": reference.TargetWorkspace,
-	// 	"target":           reference.Target,
-	// 	"type":             reference.Type,
-	// 	"description":      reference.Description,
-	// 	"display_text":     reference.DisplayText,
-	// }
 
 	ref := flattenReference(reference)
 
