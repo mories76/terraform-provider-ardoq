@@ -11,53 +11,19 @@ import (
 )
 
 func dataSourceArdoqComponent() *schema.Resource {
+	dsSchema := datasourceSchemaFromResourceSchema(resourceArdoqComponent().Schema)
+	addRequiredFieldsToSchema(dsSchema, "root_workspace", "name")
+
 	return &schema.Resource{
 		Description: "`ardoq_component` data source can be used to retrieve information for a component by name and workspace.",
 		ReadContext: dataSourceArdoqComponentRead,
-		Schema: map[string]*schema.Schema{
-			"root_workspace": &schema.Schema{
-				Description: "Id of the workspace the component belongs to",
-				Type:        schema.TypeString,
-				Required:    true,
-			},
-			"name": &schema.Schema{
-				Description: "Name of the component",
-				Type:        schema.TypeString,
-				Required:    true,
-			},
-			"id": &schema.Schema{
-				Description: "The unique ID of the component",
-				Type:        schema.TypeString,
-				Computed:    true,
-			},
-			"parent": &schema.Schema{
-				Description: "Id of the component's parent",
-				Type:        schema.TypeString,
-				Computed:    true,
-			},
-			"type_id": &schema.Schema{
-				Description: "Id of the component's type",
-				Type:        schema.TypeString,
-				Computed:    true,
-			},
-			"description": &schema.Schema{
-				Description: "Text field describing the component",
-				Type:        schema.TypeString,
-				Computed:    true,
-			},
-			"fields": { // this is the place for the custom fields
-				Description: "All custom fields from the model end up here",
-				Type:        schema.TypeMap,
-				Computed:    true,
-				Elem: &schema.Schema{
-					Type: schema.TypeString,
-				},
-			},
-		},
+		Schema:      dsSchema,
 	}
 }
 
 func dataSourceArdoqComponents() *schema.Resource {
+	dsSchema := datasourceSchemaFromResourceSchema(resourceArdoqComponent().Schema)
+
 	return &schema.Resource{
 		Description: "`ardoq_components` data source can be used to retrieve all components from a specific workspace.",
 		ReadContext: dataSourceArdoqComponentsRead,
@@ -71,46 +37,7 @@ func dataSourceArdoqComponents() *schema.Resource {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem: &schema.Resource{
-					Schema: map[string]*schema.Schema{
-						"id": &schema.Schema{
-							Description: "The unique ID of the component",
-							Type:        schema.TypeString,
-							Computed:    true,
-						},
-						"description": &schema.Schema{
-							Description: "Text field describing the component",
-							Type:        schema.TypeString,
-							Computed:    true,
-						},
-						"fields": { // this is the place for the custom/unmapped fields
-							Description: "All custom fields from the model end up here",
-							Type:        schema.TypeMap,
-							Computed:    true,
-							Elem: &schema.Schema{
-								Type: schema.TypeString,
-							},
-						},
-						"name": &schema.Schema{
-							Description: "Name of the component",
-							Type:        schema.TypeString,
-							Computed:    true,
-						},
-						"parent": &schema.Schema{
-							Description: "Id of the component's parent",
-							Type:        schema.TypeString,
-							Computed:    true,
-						},
-						"root_workspace": &schema.Schema{
-							Description: "Id of the workspace the component belongs to",
-							Type:        schema.TypeString,
-							Computed:    true,
-						},
-						"type_id": &schema.Schema{
-							Description: "Id of the component's type",
-							Type:        schema.TypeString,
-							Required:    true,
-						},
-					},
+					Schema: dsSchema,
 				},
 			},
 		},
@@ -118,7 +45,6 @@ func dataSourceArdoqComponents() *schema.Resource {
 }
 
 func dataSourceArdoqComponentRead(ctx context.Context, d *schema.ResourceData, m interface{}) diag.Diagnostics {
-	// Warning or errors can be collected in a slice type
 	var diags diag.Diagnostics
 
 	c := m.(ardoq.Client)
@@ -126,9 +52,8 @@ func dataSourceArdoqComponentRead(ctx context.Context, d *schema.ResourceData, m
 	root_workspace := d.Get("root_workspace").(string)
 
 	components, err := c.Components().Search(ctx, &ardoq.ComponentSearchQuery{Name: component_name, Workspace: root_workspace})
-
 	if err != nil {
-		return diag.FromErr(err)
+		return handleNotFoundError(err, d, d.Id()) // TODO apply handleNotFounError on other datasources
 	}
 
 	cmp := flattenComponent(&(*components)[0])
@@ -141,6 +66,7 @@ func dataSourceArdoqComponentRead(ctx context.Context, d *schema.ResourceData, m
 	}
 
 	d.SetId((*components)[0].ID)
+
 	return diags
 }
 
@@ -170,6 +96,13 @@ func dataSourceArdoqComponentsRead(ctx context.Context, d *schema.ResourceData, 
 }
 
 func flattenComponent(component *ardoq.Component) map[string]interface{} {
+	// d.Set("root_workspace", component.RootWorkspace)
+	// d.Set("name", component.Name)
+	// d.Set("description", component.Description)
+	// d.Set("fields", component.Fields)
+	// d.Set("parent", component.Parent)
+	// d.Set("type_id", component.TypeID)
+
 	return map[string]interface{}{
 		"root_workspace": component.RootWorkspace,
 		"name":           component.Name,
@@ -183,6 +116,7 @@ func flattenComponent(component *ardoq.Component) map[string]interface{} {
 
 func flattenComponents(components *[]ardoq.Component) []interface{} {
 	var result []interface{}
+
 	for _, component := range *components {
 		result = append(result, flattenComponent(&component))
 	}
