@@ -2,6 +2,7 @@ package provider
 
 import (
 	"context"
+	"fmt"
 	"strconv"
 	"time"
 
@@ -53,7 +54,15 @@ func dataSourceArdoqComponentRead(ctx context.Context, d *schema.ResourceData, m
 
 	components, err := c.Components().Search(ctx, &ardoq.ComponentSearchQuery{Name: component_name, Workspace: root_workspace})
 	if err != nil {
-		return handleNotFoundError(err, d, d.Id()) // TODO apply handleNotFounError on other datasources
+		return diag.FromErr(err)
+	}
+	// TODO: check other datasource/resources for error handling
+	if len(*components) != 1 { // check if components result is 1, if 0 then no result was found, if more then 1 was found, the query was not specific enough
+		diags = append(diags, diag.Diagnostic{
+			Severity: diag.Error,
+			Summary:  fmt.Sprintf("%d components found, ardoq_component should return 1", len(*components)),
+		})
+		return diags
 	}
 
 	cmp := flattenComponent(&(*components)[0])
