@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/resource"
 )
 
-func TestAccDataSourceComponent(t *testing.T) {
+func TestAccResourceComponent(t *testing.T) {
 
 	RootWorkspace := os.Getenv("ARDOQ_WORKSPACE")
 
@@ -24,17 +24,17 @@ func TestAccDataSourceComponent(t *testing.T) {
 		ProviderFactories: providerFactories,
 		Steps: []resource.TestStep{
 			{
-				Config: testAccDataSourceComponent(RootWorkspace, componentName),
+				Config: testAccResourceComponent(RootWorkspace, componentName),
 				Check:  resource.TestCheckResourceAttr("data.ardoq_component.my-component", "name", componentName),
 			},
 		},
 	})
 }
 
-func testAccDataSourceComponent(RootWorkspace, componentName string) string {
+func testAccResourceComponent(RootWorkspace, componentName string) string {
 	return fmt.Sprintf(`
 resource "ardoq_component" "my-component" {
-  root_worksapce = "%s"
+  root_workspace = "%s"
   name = "%s"
   description = "TestAcc"
 }
