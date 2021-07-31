@@ -21,6 +21,11 @@ var workspaceSchema = map[string]*schema.Schema{
 		Type:        schema.TypeString,
 		Required:    true,
 	},
+	"component_counter": &schema.Schema{
+		Description: "Number of components in the workspace",
+		Type:        schema.TypeInt,
+		Computed:    true,
+	},
 	"component_model": &schema.Schema{
 		Description: "Id of the model the workspace is based on",
 		Type:        schema.TypeString,
@@ -123,6 +128,7 @@ func flattenWorkspace(workspace *ardoq.Workspace) map[string]interface{} {
 		"name":               workspace.Name,
 		"component_model":    workspace.ComponentModel,
 		"component_template": workspace.ComponentTemplate,
+		"component_counter":  workspace.CompCounter,
 		"description":        workspace.Description,
 		"fields":             workspace.Fields,
 	}
