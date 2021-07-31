@@ -39,6 +39,7 @@ output "all_workspaces" {
 
 Read-Only:
 
+- **component_counter** (Number)
 - **component_model** (String)
 - **component_template** (String)
 - **description** (String)

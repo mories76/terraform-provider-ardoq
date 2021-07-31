@@ -32,6 +32,7 @@ output "workspace_output" {
 
 ### Read-Only
 
+- **component_counter** (Number) Number of components in the workspace
 - **component_model** (String) Id of the model the workspace is based on
 - **component_template** (String) Id of the template the workspace is based on
 - **description** (String) Text field describing the workspace
