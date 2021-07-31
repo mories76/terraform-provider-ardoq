@@ -10,7 +10,7 @@ import (
 	ardoq "github.com/mories76/ardoq-client-go/client"
 )
 
-var componentSchema = map[string]*schema.Schema{
+var workspaceSchema = map[string]*schema.Schema{
 	"id": &schema.Schema{
 		Description: "The unique ID of the workspace",
 		Type:        schema.TypeString,
@@ -50,7 +50,7 @@ func dataSourceArdoqWorkspace() *schema.Resource {
 	return &schema.Resource{
 		Description: "`arodq_workspace` data source returns a workspace",
 		ReadContext: dataSourceWorkspaceRead,
-		Schema:      componentSchema,
+		Schema:      workspaceSchema,
 	}
 }
 
@@ -64,7 +64,7 @@ func dataSourceArdoqWorkspaces() *schema.Resource {
 				Type:        schema.TypeList,
 				Computed:    true,
 				Elem: &schema.Resource{
-					Schema: componentSchema,
+					Schema: workspaceSchema,
 				},
 			},
 		},
