@@ -25,7 +25,9 @@ func TestAccResourceComponent(t *testing.T) {
 		Steps: []resource.TestStep{
 			{
 				Config: testAccResourceComponent(RootWorkspace, componentName),
-				Check:  resource.TestCheckResourceAttr("data.ardoq_component.my-component", "name", componentName),
+				Check: resource.ComposeTestCheckFunc(
+					resource.TestCheckResourceAttr("data.ardoq_component.my-component", "name", componentName),
+				),
 			},
 		},
 	})
