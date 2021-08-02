@@ -28,7 +28,7 @@ func dataSourceArdoqReferences() *schema.Resource {
 		Description: "`arodq_references` returns all references",
 		ReadContext: dataSourceReferencesRead,
 		Schema: map[string]*schema.Schema{
-			"references": &schema.Schema{
+			"references": {
 				Description: "References describe relationship between components. References can have types (defined by the model) to represent different kinds of relationship i.e. Synchronized or Asynchroinzed.",
 				Type:        schema.TypeList,
 				Computed:    true,
