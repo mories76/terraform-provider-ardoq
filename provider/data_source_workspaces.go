@@ -7,7 +7,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	ardoq "github.com/mories76/ardoq-client-go/client"
+	ardoq "github.com/mories76/ardoq-client-go/pkg"
 )
 
 var workspaceSchema = map[string]*schema.Schema{
