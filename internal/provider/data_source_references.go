@@ -45,9 +45,9 @@ func dataSourceReferenceRead(ctx context.Context, d *schema.ResourceData, m inte
 	var diags diag.Diagnostics
 
 	c := m.(ardoq.Client)
-	reference_id := d.Get("id").(string)
+	referenceID := d.Get("id").(string)
 
-	reference, err := c.References().Read(ctx, reference_id)
+	reference, err := c.References().Read(ctx, referenceID)
 	if err != nil {
 		// return diag.FromErr(err)
 		return handleNotFoundError(err, d, d.Id())

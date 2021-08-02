@@ -82,9 +82,9 @@ func dataSourceModelRead(ctx context.Context, d *schema.ResourceData, m interfac
 	var diags diag.Diagnostics
 
 	c := m.(ardoq.Client)
-	model_id := d.Get("id").(string)
+	modelID := d.Get("id").(string)
 
-	model, err := c.Models().Read(ctx, model_id)
+	model, err := c.Models().Read(ctx, modelID)
 	if err != nil {
 		return diag.FromErr(err)
 	}

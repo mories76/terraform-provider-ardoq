@@ -26,7 +26,7 @@ func init() {
 	}
 }
 
-// Provider -
+// New returns a provider
 func New(version string) func() *schema.Provider {
 	return func() *schema.Provider {
 		p := &schema.Provider{

@@ -49,10 +49,10 @@ func dataSourceArdoqComponentRead(ctx context.Context, d *schema.ResourceData, m
 	var diags diag.Diagnostics
 
 	c := m.(ardoq.Client)
-	component_name := d.Get("name").(string)
-	root_workspace := d.Get("root_workspace").(string)
+	componentName := d.Get("name").(string)
+	rootWorkspace := d.Get("root_workspace").(string)
 
-	components, err := c.Components().Search(ctx, &ardoq.ComponentSearchQuery{Name: component_name, Workspace: root_workspace})
+	components, err := c.Components().Search(ctx, &ardoq.ComponentSearchQuery{Name: componentName, Workspace: rootWorkspace})
 	if err != nil {
 		return diag.FromErr(err)
 	}
@@ -84,10 +84,10 @@ func dataSourceArdoqComponentsRead(ctx context.Context, d *schema.ResourceData, 
 	var diags diag.Diagnostics
 
 	c := m.(ardoq.Client)
-	root_workspace := d.Get("root_workspace").(string)
+	rootWorkspace := d.Get("root_workspace").(string)
 
 	var qry = &ardoq.ComponentSearchQuery{
-		Workspace: root_workspace,
+		Workspace: rootWorkspace,
 	}
 	components, err := c.Components().Search(ctx, qry)
 	if err != nil {
