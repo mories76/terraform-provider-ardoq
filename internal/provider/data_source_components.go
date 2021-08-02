@@ -29,12 +29,12 @@ func dataSourceArdoqComponents() *schema.Resource {
 		Description: "`ardoq_components` data source can be used to retrieve all components from a specific workspace.",
 		ReadContext: dataSourceArdoqComponentsRead,
 		Schema: map[string]*schema.Schema{
-			"root_workspace": &schema.Schema{
+			"root_workspace": {
 				Description: "Id of the workspace where to retrieve components from",
 				Type:        schema.TypeString,
 				Required:    true,
 			},
-			"components": &schema.Schema{
+			"components": {
 				Type:     schema.TypeList,
 				Computed: true,
 				Elem: &schema.Resource{

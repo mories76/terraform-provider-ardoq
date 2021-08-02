@@ -11,7 +11,7 @@ import (
 )
 
 var modelSchema = map[string]*schema.Schema{
-	"id": &schema.Schema{
+	"id": {
 		Description: "The unique ID of the model",
 		Type:        schema.TypeString,
 		Required:    true,
@@ -24,7 +24,7 @@ var modelSchema = map[string]*schema.Schema{
 			Type: schema.TypeString,
 		},
 	},
-	"description": &schema.Schema{
+	"description": {
 		Description: "Text field describing the model,",
 		Type:        schema.TypeString,
 		Computed:    true,
@@ -37,7 +37,7 @@ var modelSchema = map[string]*schema.Schema{
 			Type: schema.TypeString,
 		},
 	},
-	"name": &schema.Schema{
+	"name": {
 		Description: "Name of the model",
 		Type:        schema.TypeString,
 		Computed:    true,
@@ -65,7 +65,7 @@ func dataSourceArdoqModels() *schema.Resource {
 		Description: "`ardoq_models` returns all models",
 		ReadContext: dataSourceModelsRead,
 		Schema: map[string]*schema.Schema{
-			"models": &schema.Schema{
+			"models": {
 				// Description: "TODO", //TODOC
 				Type:     schema.TypeList,
 				Computed: true,

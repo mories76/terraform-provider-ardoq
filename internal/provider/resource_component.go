@@ -29,7 +29,7 @@ func resourceArdoqComponent() *schema.Resource {
 				Type:        schema.TypeString,
 				Optional:    true,
 			},
-			"id": &schema.Schema{
+			"id": {
 				Description: "The unique ID of the component",
 				Type:        schema.TypeString,
 				Computed:    true,

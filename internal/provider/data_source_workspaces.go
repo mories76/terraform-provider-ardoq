@@ -11,32 +11,32 @@ import (
 )
 
 var workspaceSchema = map[string]*schema.Schema{
-	"id": &schema.Schema{
+	"id": {
 		Description: "The unique ID of the workspace",
 		Type:        schema.TypeString,
 		Computed:    true,
 	},
-	"name": &schema.Schema{
+	"name": {
 		Description: "Name of workspace",
 		Type:        schema.TypeString,
 		Required:    true,
 	},
-	"component_counter": &schema.Schema{
+	"component_counter": {
 		Description: "Number of components in the workspace",
 		Type:        schema.TypeInt,
 		Computed:    true,
 	},
-	"component_model": &schema.Schema{
+	"component_model": {
 		Description: "Id of the model the workspace is based on",
 		Type:        schema.TypeString,
 		Computed:    true,
 	},
-	"component_template": &schema.Schema{
+	"component_template": {
 		Description: "Id of the template the workspace is based on",
 		Type:        schema.TypeString,
 		Computed:    true,
 	},
-	"description": &schema.Schema{
+	"description": {
 		Description: "Text field describing the workspace",
 		Type:        schema.TypeString,
 		Computed:    true,
@@ -64,7 +64,7 @@ func dataSourceArdoqWorkspaces() *schema.Resource {
 		Description: "`arodq_workspaces` data source returns all workspaces",
 		ReadContext: dataSourceWorkspacesRead,
 		Schema: map[string]*schema.Schema{
-			"workspaces": &schema.Schema{
+			"workspaces": {
 				Description: "Ardoq groups documentation into workspaces. A workspace contains all the resources that Ardoq needs to render the textual and visual documentation.",
 				Type:        schema.TypeList,
 				Computed:    true,
