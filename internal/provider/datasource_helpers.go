@@ -71,7 +71,8 @@ func addRequiredFieldsToSchema(schema map[string]*schema.Schema, keys ...string)
 // addExactlyOneOfFieldsToSchema is a convenience func that sets a list of keys Optional & ExactlyOneOf.
 // This is useful when the schema has been generated (using `datasourceSchemaFromResourceSchema` above for
 // example) and the datasource could take one multiple inputs (say a unique name or a unique id)
-func addExactlyOneOfFieldsToSchema(schema map[string]*schema.Schema, keys ...string) {
+// this function is not used yet, but keep it around for reference
+func addExactlyOneOfFieldsToSchema(schema map[string]*schema.Schema, keys ...string) { //nolint:deadcode,unused
 	for _, v := range keys {
 		schema[v].Computed = false
 		schema[v].Optional = true
