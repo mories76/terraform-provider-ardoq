@@ -31,7 +31,7 @@ func New(version string) func() *schema.Provider {
 	return func() *schema.Provider {
 		p := &schema.Provider{
 			Schema: map[string]*schema.Schema{
-				"apikey": {
+				"apikey": &schema.Schema{
 					Description: "API key. Can be specified with the `ARDOQ_APIKEY` " +
 						"environment variable.",
 					Type:        schema.TypeString,
