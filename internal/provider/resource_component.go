@@ -95,7 +95,7 @@ func resourceArdoqComponentCreate(ctx context.Context, d *schema.ResourceData, m
 		//create temporary map
 		fields := make(map[string]interface{})
 
-		// foreach key and value append to temporay fields maps
+		// foreach key and value append to temporary fields maps
 		for k, v := range d.Get("fields").(map[string]interface{}) {
 			fields[k] = v.(string)
 		}
@@ -169,7 +169,7 @@ func resourceArdoqComponentUpdate(ctx context.Context, d *schema.ResourceData, m
 		//create temporary map
 		fields := make(map[string]interface{})
 
-		// foreach key and value append to temporay fields maps
+		// foreach key and value append to temporary fields maps
 		for k, v := range d.Get("fields").(map[string]interface{}) {
 			fields[k] = v.(string)
 		}
