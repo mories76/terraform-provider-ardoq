@@ -127,7 +127,6 @@ func flattenModel(model *ardoq.Model) map[string]interface{} {
 		"component_types": model.GetComponentTypeID(),
 		"description":     model.Description,
 		"fields":          model.Fields,
-		// "fields":          model.GetFields(),
 		"name":            model.Name,
 		"reference_types": model.GetReferenceTypes(),
 	}
