@@ -95,6 +95,7 @@ func flattenReference(reference *ardoq.Reference) map[string]interface{} {
 		"type":             reference.Type,
 		"description":      reference.Description,
 		"display_text":     reference.DisplayText,
+		"id":               reference.ID,
 	}
 }
 
