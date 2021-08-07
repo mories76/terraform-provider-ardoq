@@ -116,6 +116,7 @@ func flattenComponent(component *ardoq.Component) map[string]interface{} {
 		"root_workspace": component.RootWorkspace,
 		"name":           component.Name,
 		"description":    component.Description,
+		"id":             component.ID,
 		"parent":         component.Parent,
 		"type_id":        component.TypeID,
 		"fields":         component.GetConvertedFields(), //TODO figure something out, that if there are no additional fields. the object "Fields: """ doesn't get added
