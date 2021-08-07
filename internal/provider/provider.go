@@ -57,6 +57,8 @@ func New(version string) func() *schema.Provider {
 			DataSourcesMap: map[string]*schema.Resource{
 				"ardoq_component":  dataSourceArdoqComponent(),
 				"ardoq_components": dataSourceArdoqComponents(),
+				"ardoq_field":      dataSourceArdoqField(),
+				"ardoq_fields":     dataSourceArdoqFields(),
 				"ardoq_model":      dataSourceArdoqModel(),
 				"ardoq_models":     dataSourceArdoqModels(),
 				"ardoq_reference":  dataSourceArdoqReference(),
