@@ -160,6 +160,14 @@ func resourceArdoqReferenceUpdate(ctx context.Context, d *schema.ResourceData, m
 		req.Type = d.Get("type").(int)
 	}
 
+	if d.HasChange("source") {
+		req.Source = d.Get("source").(string)
+	}
+
+	if d.HasChange("target") {
+		req.Target = d.Get("target").(string)
+	}
+
 	// check if custom fields are specified by checking len of the schema field "fields"
 	// if so, loop map and add each field to the request
 	if len(d.Get("fields").(map[string]interface{})) > 0 {
