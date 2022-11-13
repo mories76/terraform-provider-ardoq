@@ -1,0 +1,11 @@
+{
+    "customizations": {
+      "codespaces": {
+        "repositories": {
+          "mories76/ardoq-client-go": {
+            "permissions": "write-all"
+          }
+        }
+      }
+    }
+  }
